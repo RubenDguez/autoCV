@@ -1,217 +1,197 @@
-%-----------------------------------------------------------------------------------------------------------------------------------------------%
-%	The MIT License (MIT)
-%
-%	Copyright (c) 2021 Jitin Nair
-%
-%	Permission is hereby granted, free of charge, to any person obtaining a copy
-%	of this software and associated documentation files (the "Software"), to deal
-%	in the Software without restriction, including without limitation the rights
-%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-%	copies of the Software, and to permit persons to whom the Software is
-%	furnished to do so, subject to the following conditions:
-%	
-%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-%	THE SOFTWARE.
-%	
-%
-%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%=====================================================
+% Argenis Ruben Dominguez — Resume (Overleaf-ready LaTeX)
+%=====================================================
+\documentclass[letterpaper,10pt]{article}
 
-%----------------------------------------------------------------------------------------
-%	DOCUMENT DEFINITION
-%----------------------------------------------------------------------------------------
-
-% article class because we want to fully customize the page and not use a cv template
-\documentclass[a4paper,12pt]{article}
-
-%----------------------------------------------------------------------------------------
-%	FONT
-%----------------------------------------------------------------------------------------
-
-% % fontspec allows you to use TTF/OTF fonts directly
-% \usepackage{fontspec}
-% \defaultfontfeatures{Ligatures=TeX}
-
-% % modified for ShareLaTeX use
-% \setmainfont[
-% SmallCapsFont = Fontin-SmallCaps.otf,
-% BoldFont = Fontin-Bold.otf,
-% ItalicFont = Fontin-Italic.otf
-% ]
-% {Fontin.otf}
-
-%----------------------------------------------------------------------------------------
-%	PACKAGES
-%----------------------------------------------------------------------------------------
-\usepackage{url}
-\usepackage{parskip} 	
-
-%other packages for formatting
-\RequirePackage{color}
-\RequirePackage{graphicx}
-\usepackage[usenames,dvipsnames]{xcolor}
-\usepackage[scale=0.9]{geometry}
-
-%tabularx environment
-\usepackage{tabularx}
-
-%for lists within experience section
+%---------- Packages ----------
+\usepackage[margin=0.6in]{geometry}
+\usepackage[colorlinks=true, urlcolor=black]{hyperref}
 \usepackage{enumitem}
-
-% centered version of 'X' col. type
-\newcolumntype{C}{>{\centering\arraybackslash}X} 
-
-%to prevent spillover of tabular into next pages
-\usepackage{supertabular}
-\usepackage{tabularx}
-\newlength{\fullcollw}
-\setlength{\fullcollw}{0.47\textwidth}
-
-%custom \section
-\usepackage{titlesec}				
-\usepackage{multicol}
-\usepackage{multirow}
-
-%CV Sections inspired by: 
-%http://stefano.italians.nl/archives/26
-\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{10pt}{10pt}
-
-%for publications
-\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
-
-%Setup hyperref package, and colours for links
-\usepackage[unicode, draft=false]{hyperref}
-\definecolor{linkcolour}{rgb}{0,0.2,0.6}
-\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
-\addbibresource{citations.bib}
-\setlength\bibitemsep{1em}
-
-%for social icons
+\usepackage{titlesec}
+\usepackage{array}
+\usepackage{xcolor}
 \usepackage{fontawesome5}
+\usepackage{setspace}
+\usepackage{helvet}
+\setstretch{1.05}
 
-%debug page outer frames
-%\usepackage{showframe}
+%---------- Formatting ----------
+\pagestyle{empty}
+\setlist[itemize]{leftmargin=*, itemsep=2pt, topsep=2pt}
+\titlespacing*{\section}{0pt}{6pt}{4pt}
+\titleformat{\section}{\large\bfseries\uppercase}{ }{0pt}{}
+\renewcommand{\labelitemi}{\textbullet}
 
+%---------- Helpers ----------
+\newcommand{\separator}{\vspace{4pt}\hrule\vspace{4pt}}
+\newcommand{\role}[2]{\textbf{#1}\hfill\textit{#2}}
+\newcommand{\place}[2]{#1 \hfill #2}
+\newcommand{\skilltag}[1]{\fcolorbox{black!10}{black!5}{\footnotesize\strut\,#1\,}}
+\renewcommand{\familydefault}{\sfdefault}
 
-% job listing environments
-\newenvironment{jobshort}[2]
-    {
-    \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
-    \end{tabularx}
-    }
-    {
-    }
-
-\newenvironment{joblong}[2]
-    {
-    \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
-    \end{tabularx}
-    \begin{minipage}[t]{\linewidth}
-    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
-    }
-    {
-    \end{itemize}
-    \end{minipage}    
-    }
-
-
-
-%----------------------------------------------------------------------------------------
-%	BEGIN DOCUMENT
-%----------------------------------------------------------------------------------------
+%=====================================================
 \begin{document}
 
-% non-numbered pages
-\pagestyle{empty} 
+%---------- Header ----------
+\begin{center}
+  {\Huge Argenis Ruben Dominguez} \\
+  Clermont, Florida 34711, United States \\
+  \href{tel:4072882194}{407.288.2194} \\
+  \href{mailto:argenis.dominguez@hotmail.com}{argenis.dominguez@hotmail.com} \\ 
+\end{center}
+\separator
 
-%----------------------------------------------------------------------------------------
-%	TITLE
-%----------------------------------------------------------------------------------------
+%---------- Profile ----------
+\section*{Profile}
+Results-driven Full-Stack Web Developer and Software Development Engineer in Test (SDET) with over a decade of experience designing, developing, and optimizing scalable web applications and automation frameworks. Highly skilled in full-stack development with expertise in React, TypeScript, Node.js, Express.js, MongoDB, PostgreSQL, and AWS cloud services (EC2, S3, RDS), delivering robust, maintainable, and high-performance solutions. Adept at building dynamic dashboards, internal QA tools, and data visualizations to improve testing efficiency, CI/CD pipeline health, and overall system visibility. \\ \\ Proficient in UI automation and testing frameworks, including Playwright, WebdriverIO, Selenium, and Salesforce-specific automation using JSForce. Experienced in integrating automated tests into CI/CD pipelines via GitHub Actions, enforcing coding standards with SonarQube, and implementing best practices for test coverage, regression, and functional testing. Demonstrated ability to lead automation projects, mentor junior engineers, and guide QA and development teams on full-stack development, test automation strategies, and CI/CD integration. \\ \\ Proven success in collaborating with cross-functional teams and stakeholders in Agile environments (Scrum, Kanban, XP) to deliver scalable, maintainable software solutions. Strong focus on security, including JWT-based authentication and role-based access controls, combined with hands-on experience in refactoring legacy codebases to reduce technical debt, enhance maintainability, and optimize performance. Known for combining methodical problem-solving with creative approaches to streamline processes, accelerate delivery, and drive measurable improvements across software projects. \\ \\
 
-% \begin{tabularx}{\linewidth}{ @{}X X@{} }
-% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
-% \raisebox{-0.05\height}\faGithub\ username \ | \
-% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
-% \end{tabularx}
+%---------- Core Skills ----------
+\section*{Core Skills}
+\begin{itemize}[leftmargin=*]
+    \item{\textbf{Full-Stack Development}: React, TypeScript, Node.js, Express.js, Java (Spring Boot), MongoDB, PostgreSQL, GraphQL, REST APIs, Tailwind CSS, HTML, CSS, JavaScript}
+    \item{\textbf{Cloud \& DevOps}: AWS EC2, S3, RDS, CI/CD pipelines, GitHub Actions, Cloud deployment and automation}
+    \item{\textbf{Test Automation \& QA}: Playwright, WebdriverIO, Selenium, Salesforce Automation (JSForce), UI/Functional/Regression Testing, Test Plan Development, Automated Test Integration}
+    \item{\textbf{Security \& Best Practices}: JWT Authentication, Role-Based Access Control, Coding Standards Enforcement, SonarQube}
+    \item{\textbf{Collaboration \& Agile}: Agile Methodologies (Scrum, Kanban, XP), Cross-Functional Team Collaboration, Mentoring \& Knowledge Sharing, Code Reviews, Documentation}
+    \item{\textbf{Data \& Reporting}: Dashboards, Data Visualization, Test Metrics Tracking, Performance Monitoring, Test Coverage Analysis}
+\end{itemize}
 
-\begin{tabularx}{\linewidth}{@{} C @{}}
-\Huge{Your Name} \\[7.5pt]
-\href{https://github.com/username}{\raisebox{-0.05\height}\faGithub\ username} \ $|$ \ 
-\href{https://linkedin.com/in/username}{\raisebox{-0.05\height}\faLinkedin\ username} \ $|$ \ 
-\href{https://mysite.com}{\raisebox{-0.05\height}\faGlobe \ mysite.com} \ $|$ \ 
-\href{mailto:email@mysite.com}{\raisebox{-0.05\height}\faEnvelope \ email@mysite.com} \ $|$ \ 
-\href{tel:+000000000000}{\raisebox{-0.05\height}\faMobile \ +00.00.000.000} \\
-\end{tabularx}
+\newpage
+%---------- Employment History ----------
+\section*{Employment History}
+\begin{itemize}
+    \item{
+        \place{NextEra Energy Resources — Juno Beach, FL}{Apr 2022 – Present} \\
+        \role{IT Programmer Analyst (Full-Stack Developer \& SDET)}{} \\
+        \begin{itemize}
+            \item{Designed and developed RubenReport, a full-stack React application hosted on AWS EC2, leveraging AWS RDS (PostgreSQL) for structured storage and AWS S3 for managing and persisting test execution results.}
+            \item{Built dynamic web dashboards to track test execution results, test coverage, and CI/CD pipeline health, integrating data from GitHub Actions, SonarQube, and internal APIs for improved test visibility.}
+            \item{Developed full-stack internal QA tools using React, TypeScript, Node.js, and Express.js, with MongoDB (Mongoose) for managing test metadata, performance stats, and environment configurations.}
+            \item{Implemented JWT-based authentication and role-based access controls to secure QA platforms, while building reusable UI components with Tailwind CSS and integrating client-side storage for user preferences.}
+            \item{Created custom Salesforce test support tools, including visual script builders and log parsers, streamlining automation workflows for SDET engineers.}
+            \item{Collaborated closely with QA automation teams to align development efforts with testing needs, reducing manual processes and increasing efficiency.}
+            \item{Designed, developed, and maintained UI automation frameworks using Playwright/WebdriverIO and TypeScript for Salesforce applications across multiple platforms.}
+            \item{Utilized JSForce (Salesforce Node.js) for API testing, SOQL queries, test data creation, and automation of Salesforce database interactions.}
+            \item{Led automation projects overseeing test frameworks in Java with Selenium and TypeScript with WebdriverIO, ensuring scalability, consistency, and adherence to best practices across teams.}
+            \item{Hands-on in setting up automation frameworks from scratch, including configuring WebdriverIO/Selenium, integrating with GitHub Actions CI/CD, and enabling seamless automated test execution.}
+            \item{Conducted UI, functional, and regression testing for Salesforce workflows, components, and integrations, while integrating automated tests into CI/CD pipelines for rapid feedback loops.}
+            \item{Performed code reviews for automation scripts, enforcing maintainability and quality with SonarQube to identify technical debt and enforce coding standards.}
+            \item{Authored technical documentation, including test plans, automation strategies, and system architecture, ensuring clarity for QA and development teams.}
+            \item{Mentored junior engineers and QA team members, providing guidance on full-stack development, test automation best practices, Salesforce testing methodologies, and CI/CD integration.}
+            \item{Actively contributed to agile ceremonies (refinement, sprint planning, reviews, retrospectives) by providing insights on testability, automation, and development strategy.}
+        \end{itemize}
+    }
+    \separator
+    \item{
+        \place{Viable Engineering — Orlando, FL}{Oct 2018 – Apr 2022} \\
+        \role{Full-Stack Software Developer}{} \\
+        \begin{itemize}
+            \item{Modernized, maintained, and refactored full-stack web applications using React.js, TypeScript, Node.js (Express), and MongoDB, improving scalability, performance, and maintainability.}
+            \item{Wrote modular, clean, and testable code for front-end and back-end components, integrating GraphQL APIs and optimizing database queries for efficiency and security.}
+            \item{Built dashboards, workflows, and data visualizations to support data-driven decision-making and enhance user experience.}
+            \item{Refactored legacy codebases to reduce technical debt, improve readability, and streamline maintainability across projects.}
+            \item{Collaborated with stakeholders and cross-functional teams to define, design, and deliver scalable software solutions in Agile environments (Scrum, XP, Kanban).}
+            \item{Conducted code reviews, mentored junior developers, and shared best practices to improve team productivity and code quality.}
+            \item{Maintained documentation for codebases, development processes, and analytics reporting to support informed business decisions.}
+            \item{Leveraged cloud infrastructure (AWS EC2, S3, RDS) and CI/CD pipelines using GitHub Actions to automate deployments and ensure reliability.}
+            \item{Applied methodical and creative troubleshooting approaches to resolve complex system issues and optimize application performance.}     
+        \end{itemize}
+    }
+    \separator
+    \item{
+        \place{Revature — Orlando, FL}{Jan 2015 – Oct 2018} \\
+        \role{Full-Stack Software Developer}{} \\
+        \begin{itemize}
+            \item{Designed, developed, and maintained full-stack web applications using React, TypeScript, Java (Spring Boot), and PostgreSQL, delivering scalable and maintainable solutions.}
+            \item{Implemented features, fixed bugs, and performed troubleshooting in complex systems, leveraging Playwright/WebdriverIO for robust automation testing.}
+            \item{Assisted in software component design and system architecture, integrating internal AI systems and cloud services (AWS EC2, S3, RDS) while following security best practices.}
+            \item{Developed clean, testable code, executed unit and UI automation tests, and maintained CI/CD pipelines using GitHub Actions to ensure software quality and reliability.}
+            \item{Collaborated effectively with cross-functional teams to gather requirements, deliver solutions, and participate in agile practices including sprint planning and retrospectives.}
+            \item{Maintained documentation for codebases and development processes, engaged in code reviews, and contributed to knowledge sharing and team skill development.}
+            \item{Applied methodical, patient, and creative approaches to troubleshooting, continuously learning new technologies and helping others refine their skills.}
+        \end{itemize}
+    }
+\end{itemize}
 
-%----------------------------------------------------------------------------------------
-% EXPERIENCE SECTIONS
-%----------------------------------------------------------------------------------------
+%---------- Education ----------
+\separator
+\section*{Education}
+\begin{itemize}
+    \item{
+        \place{University of Central Florida}{Jun 2024 – Nov 2024} \\
+        Software Development Boot Camp \\
+    }
+    \item{
+        \place{University of Phoenix}{Oct 2015 – Oct 2020} \\
+        Bachelor of Science in Information Technology \\
+    }
+    \item{
+        \place{Everest University}{Jun 2012 – Oct 2015} \\
+        Associate of Science in Information Technology
+    }    
+\end{itemize}
 
-%Interests/ Keywords/ Summary
-\section{Summary}
-This CV can also be automatically complied and published using GitHub Actions. For details, \href{https://github.com/jitinnair1/autoCV}{click here}.
-
-%Experience
-\section{Work Experience}
-
-\begin{jobshort}{Designation}{Jan 2021 - present}
-long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width
-\end{jobshort}
 
 
-\begin{joblong}{Designation}{Mar 2019 - Jan 2021}
-\item long long line of blah blah that will wrap when the table fills the column width
-\item again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah. again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah
-\end{joblong}
-  
-%Projects
-\section{Projects}
-
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Some Project} & \hfill \href{https://some-link.com}{Link to Demo} \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width}  \\
-\end{tabularx}
-
-%----------------------------------------------------------------------------------------
-%	EDUCATION
-%----------------------------------------------------------------------------------------
-\section{Education}
-\begin{tabularx}{\linewidth}{@{}l X@{}}	
-2030 - present & PhD (Subject) at \textbf{University} \hfill \normalsize (GPA: 4.0/4.0) \\
-
-2023 - 2027 & Bachelor's Degree at \textbf{College} \hfill (GPA: 4.0/4.0) \\ 
-
-2022 & Class 12th Some Board \hfill  (Grades) \\
-
-2021 & Class 10th Some Board \hfill  (Grades) \\
-\end{tabularx}
-
-%----------------------------------------------------------------------------------------
-%	PUBLICATIONS
-%----------------------------------------------------------------------------------------
-\section{Publications}
-\begin{refsection}[citations.bib]
-\nocite{*}
-\printbibliography[heading=none]
-\end{refsection}
-
-%----------------------------------------------------------------------------------------
-%	SKILLS
-%----------------------------------------------------------------------------------------
-\section{Skills}
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-Some Skills &  \normalsize{This, That, Some of this and that etc.}\\
-Some More Skills  &  \normalsize{Also some more of this, Some more that, And some of this and that etc.}\\  
-\end{tabularx}
-
-\vfill
-\center{\footnotesize Last updated: \today}
+%---------- Technical Skills ----------
+\newpage
+\section*{Technical Skills}
+\begin{itemize}
+    \item {
+        \textbf{Programming \& Development}:
+        \begin{itemize}
+    	\item{\textbf{Front-End}: React, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS}
+    	\item{\textbf{Back-End}: Node.js, Express.js, Java (Spring Boot)}
+    	\item{\textbf{Databases}: MongoDB (Mongoose), PostgreSQL, GraphQL, SQL}
+        \end{itemize}
+    }
+    \item {
+        \textbf{Cloud \& DevOps}:
+        \begin{itemize}
+    	\item{\textbf{AWS}: EC2, S3, RDS}
+    	\item{\textbf{CI/CD}: GitHub Actions, Pipeline Integration, Automated Deployments}
+    	\item{Cloud-Based Test and Application Hosting}
+        \end{itemize}
+    }
+    \item {
+        \textbf{Test Automation \& QA Tools}:
+        \begin{itemize}
+    	\item{Playwright, WebdriverIO, Selenium}
+    	\item{Salesforce Automation: JSForce, SOQL, Test Data Management}
+    	\item{UI, Functional, Regression Testing}
+    	\item{Test Framework Design, Automation Strategy, CI/CD Test Integration}
+        \end{itemize}
+    }
+    \item {
+        \textbf{Security \& Best Practices}:
+        \begin{itemize}
+    	\item{JWT Authentication, Role-Based Access Control}
+    	\item{Coding Standards Enforcement, SonarQube, Code Reviews}
+    	\item{Secure Application Design}
+        \end{itemize}
+    }
+    \item {
+        \textbf{Data, Reporting \& Visualization}:
+        \begin{itemize}
+    	\item{Dashboard Development, Test Metrics, Performance Monitoring}
+    	\item{Data Visualization for QA and Business Insights}
+        \end{itemize}
+    }
+    \item {
+        \textbf{Methodologies \& Collaboration}:
+        \begin{itemize}
+    	\item{Agile: Scrum, Kanban, XP}
+    	\item{Mentoring, Cross-Functional Collaboration, Technical Documentation}
+        \end{itemize}
+    }
+\end{itemize}
+\separator
+\section*{Links}
+\begin{itemize}
+    \item \href{https://www.linkedin.com/in/argenis-dominguez/}{LinkedIn: https://www.linkedin.com/in/argenis-dominguez}
+    \item \href{https://me.argenisdominguez.com/#/}{Personal Website: https://me.argenisdominguez.com/}
+    \item \href{https://portfolio.argenisdominguez.com/#/}{Portfolio: https://portfolio.argenisdominguez.com/}
+    \item \href{https://github.com/RubenDguez}{GitHub: https://github.com/RubenDguez/}
+\end{itemize}
 
 \end{document}
